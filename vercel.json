@@ -1,0 +1,28 @@
+{
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "dist",
+  "devCommand": "npm run web",
+  "framework": null,
+  "installCommand": "npm install",
+  "routes": [
+    {
+      "src": "/workers/(.*)",
+      "dest": "/workers/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/workers/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    }
+  ]
+}
