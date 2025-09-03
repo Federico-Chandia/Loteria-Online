@@ -1,8 +1,8 @@
-const API_URL = 'http://192.168.0.102:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'https://scrapper-loteria.onrender.com';
 
 export const getSorteos = async () => {
   try {
-    const res = await fetch(`${API_URL}/q6r/sorteos`);
+    const res = await fetch(`${API_URL}/sorteos`);
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     }
@@ -30,13 +30,13 @@ export const getUltimoSorteoCompleto = async () => {
 };
 
 export const getSorteo = async (nro) => {
-  const res = await fetch(`${API_URL}/q6r/sorteo/${nro}`);
+  const res = await fetch(`${API_URL}/sorteo/${nro}`);
   const json = await res.json();
   return json.data;
 };
 
 export const getTodosLosNumeros = async () => {
-  const res = await fetch(`${API_URL}/q6r/todoslosnumeros`);
+  const res = await fetch(`${API_URL}/todoslosnumeros`);
   const json = await res.json();
   return json.data;
 };
