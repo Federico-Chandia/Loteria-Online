@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL || 'https://scrapper-loteria.onrender.com';
+const API_URL = process.env.REACT_APP_API_URL || 'http://scrapper-quini6.onrender.com';
 
 export const getSorteos = async () => {
   try {
@@ -36,7 +36,7 @@ export const getSorteo = async (nro) => {
 };
 
 export const getTodosLosNumeros = async () => {
-  const res = await fetch(`${API_URL}/todoslosnumeros`);
+  const res = await fetch(`${API_URL}/todoslossorteos`);
   const json = await res.json();
   return json.data;
 };
